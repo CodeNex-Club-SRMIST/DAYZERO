@@ -5,7 +5,7 @@ import { motion, useAnimation, useInView } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Calendar } from "lucide-react"
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+
 
 export default function Hero() {
   const controls = useAnimation()
@@ -238,7 +238,7 @@ export default function Hero() {
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link href="https://dayzero.devfolio.co/">
-              <Button className="bg-teal-700 hover:bg-teal-600 text-white text-lg px-8 py-6 h-auto">Register Now</Button>
+              <Button className="bg-teal-700 hover:bg-teal-600 text-white md:text-lg text-sm md:px-8 px-4 mf:py-6 py-3 h-auto">Register Now</Button>
             </Link>
           </motion.div>
           <motion.div
@@ -249,7 +249,7 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-2 bg-teal-800/50 backdrop-blur-sm border border-teal-700 rounded-full px-6 py-3">
             <Calendar className="h-5 w-5 text-teal-400" />
-            <span className="text-lg font-medium">Mark your calendar: April 7-8, 2025</span>
+            <span className="md:text-lg text-sm font-medium">Mark your calendar: April 7-8, 2025</span>
           </div>
         </motion.div>
           {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -278,7 +278,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 md:visible hidden"
         >
           <div className="flex flex-col items-center">
             <span className="text-sm text-gray-400 mb-2">Scroll to explore</span>

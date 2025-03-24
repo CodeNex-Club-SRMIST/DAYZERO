@@ -5,6 +5,8 @@ import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
+import Image from "next/image"
+import logo from "../public/LOGO_DayZERO_Transparent.png"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -32,7 +34,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 p-5 z-50 transition-all duration-300 border border-neutral-600 ${scrolled ? "bg-black/80 backdrop-blur-md py-5" : "bg-black/80 py-4 rounded-full top-5 left-5 right-5 p-5"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border md:border-neutral-600 ${scrolled ? "md:bg-black/80 backdrop-blur-md md:py-5 py-2" : "md:bg-black/80 py-4 md:rounded-full md:top-5 md:left-5 md:right-5 md:p-5 "
         }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -43,7 +45,7 @@ export default function Navbar() {
             transition={{ duration: 0.5 }}
             className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-teal-500"
           >
-            DAYZERO/-
+            <Image height={100} width={100} src={logo} alt="dayzero logo" />
           </motion.div>
         </Link>
 
@@ -98,34 +100,35 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-black/95 backdrop-blur-md"
+            className="fixed inset-0 bg-black/90 backdrop-blur-lg flex items-center justify-center"
+            onClick={() => setIsOpen(false)} // Close when clicking outside
           >
-            <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+            {/* Inner div to prevent closing when clicking inside */}
+            <div
+              className="flex flex-col items-center space-y-6"
+              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+            >
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-gray-300 hover:text-white py-2 transition-colors"
+                  className="text-gray-300 text-lg hover:text-white transition"
                   onClick={(e) => {
                     e.preventDefault()
                     setIsOpen(false)
-                    const element = document.querySelector(link.href)
-                    if (element) {
-                      window.scrollTo({
-                        top: element.offsetTop - 80,
-                        behavior: "smooth",
-                      })
-                    }
+                    document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth", block: "start" })
                   }}
                 >
                   {link.name}
                 </a>
               ))}
-              <Button className="bg-teal-700 hover:bg-teal-600 text-white w-full">Register Now</Button>
+              <Link href="https://dayzero.devfolio.co/">
+                <Button className="bg-teal-700 hover:bg-teal-600 text-white w-40">Register</Button>
+              </Link>
             </div>
           </motion.div>
         )}

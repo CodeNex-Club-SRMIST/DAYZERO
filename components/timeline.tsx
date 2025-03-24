@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const timelineData = [
@@ -12,20 +13,35 @@ const timelineData = [
 ];
 
 export default function CircularTimeline() {
-  const radius = 250; // Adjust circle size
-  const centerX = 250;
-  const centerY = 250;
+
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 635);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const radius = isSmallScreen? 180 :250; // Adjust circle size
+  const centerX = isSmallScreen? 120 : 250;
+  const centerY =  250;
   const angleStep = (1.15 * Math.PI) / timelineData.length;
 
   return (
-    <div className="min-h-screen flex bg-gradient-to-br from-teal-400 to-cyan-300 relative">
+    <div className="min-h-screen md:h-[120vh] h-[100vh] flex bg-gradient-to-br from-teal-400 to-cyan-300 relative">
       <h1 className="absolute top-8 text-5xl font-bold text-teal-900 w-full text-center">TIMELINE</h1>
 
       {/* Circular Timeline Container */}
-      <div className="absolute aspect-square w-96 top-20 flex items-center justify-center mt-72">
+      <div className="absolute aspect-square w-96 top-12 flex items-center justify-center md:mt-64 mt-52  border-l-2 xs:pr-16 sm:pr-40 md:pr-0 pr-72">
         {/* Circle Outline */}
-        <div className="absolute aspect-square w-72 border-4 border-teal-800 rounded-full"></div>
-        <div className="absolute aspect-square w-60  bg-teal-800 rounded-full"></div>
+        {/* Circle Outline */}
+        <div className={`aspect-square md:w-72 w-48 border-4 border-teal-800 rounded-full`}></div>
+          {/* Inner Circle */}
+          <div className="absolute aspect-square md:w-60 w-40 bg-teal-800 rounded-full"></div>
 
         {/* Timeline Items */}
         {timelineData.map((item, index) => {
@@ -52,12 +68,12 @@ export default function CircularTimeline() {
               }}
               className="flex items-center gap-3 bg-teal-800 rounded-full pr-6" // ✅ Added flex to align elements horizontally
             >
-              <div className="min-w-[5rem] min-h-[5rem] bg-teal-950 text-white rounded-full shadow-lg shrink-0 flex items-center justify-center">
+              <div className="md:min-w-[5rem] min-w-[3rem] md:min-h-[5rem] min-h-[3rem] bg-teal-950 text-white rounded-full shadow-lg shrink-0 flex items-center justify-center">
                 <span className="text-xl font-bold">{item.number}</span>
               </div>
 
               {/* Title Beside the Circle */}
-              <div className="text-white text-left min-w-max whitespace-nowrap">
+              <div className={`text-white text-left whitespace-nowrap ${index == 3 ? "w-20 text-wrap" : ""}`}>
                 <span className="text-sm font-semibold">{item.title}</span>
                 {item.subtitle && <p className="text-xs">{item.subtitle}</p>}
               </div>
