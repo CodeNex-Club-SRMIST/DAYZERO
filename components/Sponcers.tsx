@@ -102,7 +102,7 @@ const Sponcers = () => {
                                     className="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] flex flex-col items-center p-6 rounded-lg transition-all duration-300"
                                 >
                                     <div className="w-full flex justify-center mb-4">
-                                        <Image height={100} width={100} src={sponsor.logo} alt='logo'className='rounded-full'/>
+                                        <Image height={100} width={100} src={sponsor.logo} alt='logo' className='rounded-full' />
                                     </div>
 
                                     <div className="text-center mt-2">
@@ -124,20 +124,22 @@ const Sponcers = () => {
                     </div>
                 ))}
 
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.8 }}
-                    className="mt-12 text-center"
-                >
-                    <a
-                        href="#"
-                        className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-                    >
-                        Become a Sponsor
-                    </a>
-                </motion.div>
             </div>
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+                className="mt-12 text-center hover:scale-50"
+            >
+                <button
+                    onClick={() => window.location.href = "mailto:connect.codenex@gmail.com"}
+                    className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm 
+               font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 
+               focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                >
+                    Become a Sponsor
+                </button>
+            </motion.div>
         </div>
     )
 }
