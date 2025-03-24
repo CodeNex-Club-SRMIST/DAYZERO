@@ -3,6 +3,8 @@
 import { useEffect, useRef } from "react"
 import { motion, useAnimation, useInView } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import { Calendar } from "lucide-react"
+import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
 export default function Hero() {
@@ -232,11 +234,24 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col justify-center"
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button className="bg-teal-700 hover:bg-teal-600 text-white text-lg px-8 py-6 h-auto">Register Now</Button>
+            <Link href="https://dayzero.devfolio.co/">
+              <Button className="bg-teal-700 hover:bg-teal-600 text-white text-lg px-8 py-6 h-auto">Register Now</Button>
+            </Link>
           </motion.div>
+          <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="mt-4 text-center"
+        >
+          <div className="inline-flex items-center gap-2 bg-teal-800/50 backdrop-blur-sm border border-teal-700 rounded-full px-6 py-3">
+            <Calendar className="h-5 w-5 text-teal-400" />
+            <span className="text-lg font-medium">Mark your calendar: April 7-8, 2025</span>
+          </div>
+        </motion.div>
           {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
               variant="outline"

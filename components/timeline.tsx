@@ -25,6 +25,7 @@ export default function CircularTimeline() {
       <div className="absolute aspect-square w-96 top-20 flex items-center justify-center mt-72">
         {/* Circle Outline */}
         <div className="absolute aspect-square w-72 border-4 border-teal-800 rounded-full"></div>
+        <div className="absolute aspect-square w-60  bg-teal-800 rounded-full"></div>
 
         {/* Timeline Items */}
         {timelineData.map((item, index) => {

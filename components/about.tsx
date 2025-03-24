@@ -25,24 +25,33 @@ export default function About() {
           </h2>
 
           <div className="space-y-6 text-lg text-gray-300 text-center">
-            <p>Welcome to DayZero Hackathon Chennai - Where Innovation Begins!</p>
+            <p>Welcome to DayZero Hackathon Chennai – Where Innovation
+            Begins!</p>
             <p>
-              From April 7-8, 2025, tech enthusiasts, builders, and pioneers in Web3, AI, and emerging technologies will
-              gather for an electrifying hackathon experience. With over 2,000 participants and 600+ teams, DayZero is a
-              hybrid event blending in-person collaboration (350 participants) with virtual innovation on Devfolio.
+            On April 7-8, 2025, tech enthusiasts, builders, and pioneers in
+Web3, AI, and emerging technologies will gather for an
+electrifying hackathon experience. With over 2,000
+participants and 600+ teams, DayZero is a hybrid event
+blending in-person collaboration (350 participants) with
+virtual innovation on Devfolio.
             </p>
             <p>
-              At DayZero, we don't just build projects — we create real-world solutions that drive impact. Our goal is
-              to empower the next wave of tech leaders by providing them with the resources, mentorship, and funding to
-              turn their ideas into successful ventures.
+            At DayZero, we don’t just build projects – we create realworld solutions that drive impact. Our goal is to empower the
+next wave of tech leaders by providing them with the
+resources, mentorship, and funding to turn their ideas into
+successful ventures.
             </p>
             <p>
-              And here's the best part - we've partnered with top industry leaders to offer grants and funding
-              opportunities to winning teams, helping them continue their journey beyond the hackathon.
+            And here’s the best part – we’ve partnered with top industry
+leaders to offer grants and funding opportunities to winning
+teams, helping them continue their journey beyond the
+hackathon.
             </p>
             <p>
-              Whether you're a seasoned developer, a blockchain enthusiast, an AI researcher, or just passionate about
-              tech, DayZero is your ultimate playground for innovation, networking, and collaboration.
+            Whether you're a seasoned developer, a blockchain
+enthusiast, an AI researcher, or just passionate about tech,
+DayZero is your ultimate playground for innovation,
+networking, and collaboration.
             </p>
           </div>
         </motion.div>

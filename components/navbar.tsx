@@ -32,9 +32,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 p-5 z-50 transition-all duration-300 border border-neutral-600 ${
-        scrolled ? "bg-black/80 backdrop-blur-md py-5" : "bg-black/80 py-4 rounded-full top-5 left-5 right-5 p-5"
-      }`}
+      className={`fixed top-0 left-0 right-0 p-5 z-50 transition-all duration-300 border border-neutral-600 ${scrolled ? "bg-black/80 backdrop-blur-md py-5" : "bg-black/80 py-4 rounded-full top-5 left-5 right-5 p-5"
+        }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="flex items-center">
@@ -80,7 +79,10 @@ export default function Navbar() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: 0.5 }}
           >
-            <Button className="bg-teal-700 hover:bg-teal-600 text-white">Register Now</Button>
+            <Link href="https://dayzero.devfolio.co/">
+              <Button className="bg-teal-700 hover:bg-teal-600 text-white">Register Now</Button>
+            </Link>
+
           </motion.div>
         </nav>
 
