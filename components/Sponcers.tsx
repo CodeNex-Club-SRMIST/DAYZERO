@@ -60,7 +60,7 @@ const tierConfig = {
 
 const Sponcers = () => {
     return (
-        <div className="py-20 md:py-32 bg-gradient-to-b from-teal-900 to-teal-950 relative overflow-hidden">
+        <><div className="py-20 md:py-32 bg-gradient-to-b from-teal-900 to-teal-950 relative overflow-hidden">
             <div className="absolute inset-0 z-0">
                 <div className="absolute top-1/3 right-0 w-64 h-64 bg-teal-400/10 rounded-full filter blur-3xl"></div>
                 <div className="absolute bottom-1/3 left-0 w-64 h-64 bg-teal-300/10 rounded-full filter blur-3xl"></div>
@@ -77,7 +77,7 @@ const Sponcers = () => {
 
                 {/* Render each tier section */}
                 {Object.entries(sponsorsData).map(([tier, sponsors], tierIndex) => (
-                    <div key={tier} className="mb-16">
+                    <div key={tier} className="mb-4">
                         <motion.h3
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -125,22 +125,25 @@ const Sponcers = () => {
                 ))}
 
             </div>
-            <motion.div
+        </div>
+        <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
-                className="mt-12 text-center hover:scale-50"
+                className="text-center"
             >
                 <button
-                    onClick={() => window.location.href = "mailto:connect.codenex@gmail.com"}
-                    className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm 
-               font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 
-               focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                    onClick={() => window.open("mailto:connect.codenex@gmail.com", "_self")}
+                    className="inline-flex h-12 px-6 items-center justify-center rounded-lg bg-teal-800 
+                   text-white text-lg font-semibold shadow-lg transition-all duration-300 ease-in-out 
+                   hover:bg-teal-900 hover:scale-105 focus:outline-none focus:ring-2 
+                   focus:ring-teal-900 active:scale-95"
                 >
                     Become a Sponsor
                 </button>
             </motion.div>
-        </div>
+        </>
+        
     )
 }
 

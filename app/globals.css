@@ -13,6 +13,10 @@ body {
   font-family: "Glaser Stencil", sans-serif;
 }
 
+.font-description{
+  font-family: sans-serif;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

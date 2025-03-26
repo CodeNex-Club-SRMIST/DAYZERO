@@ -24,7 +24,7 @@ export default function About() {
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-teal-500">DAYZERO</span>
           </h2>
 
-          <div className="space-y-6 text-lg text-gray-300 text-center">
+          <div className="space-y-6 text-lg text-gray-300 text-center font-description">
             <p>Welcome to DayZero Hackathon Chennai – Where Innovation
             Begins!</p>
             <p>
